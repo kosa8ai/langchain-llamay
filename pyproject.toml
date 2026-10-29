@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-llamay"
+version = "0.1.0"
+description = "LangChain integration for llamay, a local LLM runtime"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Kosa8 Labs" }]
+requires-python = ">=3.10"
+dependencies = [
+    "langchain-core>=1.0.0,<2.0.0",
+    "langchain-ollama>=1.0.0,<2.0.0",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://llamay.com"
+Documentation = "https://github.com/kosa8ai/langchain-llamay#readme"
+Source = "https://github.com/kosa8ai/langchain-llamay"
+
+[dependency-groups]
+test = ["pytest>=8,<9", "pytest-asyncio>=0.23", "langchain-tests>=1.0.0,<2.0.0"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = ["compile: placeholder test that only checks the package imports"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["langchain_llamay"]
